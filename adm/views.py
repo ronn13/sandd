@@ -1,3 +1,4 @@
+#for deployment to openshift
 from django.shortcuts import render
 
 def index(request):
