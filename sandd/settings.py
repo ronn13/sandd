@@ -1,7 +1,6 @@
 """
 Django settings for sandd project.
 
-<<<<<<< HEAD
 For more information on this file, see
 https://docs.djangoproject.com/en/1.6/topics/settings/
 
@@ -20,7 +19,6 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-<<<<<<< HEAD
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -29,7 +27,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'sex+$dfqj0^gd#y&@ntdw%d0dtj=w^2$%qj(jq&#yipv7-*j45'
-=======
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -39,16 +36,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'fol4-jw6-b5)$*1m2mx$^47vp9u(d4j*14mr^s_m#c@$_)@sro'
->>>>>>> 8052b7ec016c37e91a9217b06d5337059ac7581f
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-<<<<<<< HEAD
 TEMPLATE_DEBUG = True
 
-=======
->>>>>>> 8052b7ec016c37e91a9217b06d5337059ac7581f
 ALLOWED_HOSTS = []
 
 
@@ -61,10 +54,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD
-=======
     'adm',
->>>>>>> 8052b7ec016c37e91a9217b06d5337059ac7581f
 )
 
 MIDDLEWARE_CLASSES = (
@@ -72,21 +62,16 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-<<<<<<< HEAD
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-=======
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+#    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.security.SecurityMiddleware',
->>>>>>> 8052b7ec016c37e91a9217b06d5337059ac7581f
+#    'django.middleware.security.SecurityMiddleware',
 )
 
 ROOT_URLCONF = 'sandd.urls'
 
-<<<<<<< HEAD
-=======
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -103,16 +88,12 @@ TEMPLATES = [
     },
 ]
 
->>>>>>> 8052b7ec016c37e91a9217b06d5337059ac7581f
 WSGI_APPLICATION = 'sandd.wsgi.application'
 
 
 # Database
-<<<<<<< HEAD
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
-=======
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
->>>>>>> 8052b7ec016c37e91a9217b06d5337059ac7581f
 
 DATABASES = {
     'default': {
@@ -121,14 +102,11 @@ DATABASES = {
     }
 }
 
-<<<<<<< HEAD
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
-=======
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
->>>>>>> 8052b7ec016c37e91a9217b06d5337059ac7581f
 
 LANGUAGE_CODE = 'en-us'
 
@@ -142,10 +120,7 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-<<<<<<< HEAD
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
-=======
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
->>>>>>> 8052b7ec016c37e91a9217b06d5337059ac7581f
 
 STATIC_URL = '/static/'

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from django.conf.urls import patterns, include, url
 
 from django.contrib import admin
@@ -11,7 +10,6 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
 )
-=======
 """sandd URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -35,4 +33,3 @@ urlpatterns = [
     url(r'^$', index, name='index'),
     url(r'^admin/', include(admin.site.urls)),
 ]
->>>>>>> 8052b7ec016c37e91a9217b06d5337059ac7581f
