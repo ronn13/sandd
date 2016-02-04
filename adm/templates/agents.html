@@ -22,6 +22,11 @@
     <link rel="stylesheet" type="text/css" href="css/maps/jquery-jvectormap-2.0.1.css" />
     <link href="css/icheck/flat/green.css" rel="stylesheet" />
     <link href="css/floatexamples.css" rel="stylesheet" type="text/css" />
+    
+    <!-- Custom table styling plus plugins -->
+    <link href="css/custom.css" rel="stylesheet">
+    <link href="css/icheck/flat/green.css" rel="stylesheet">
+    <link href="css/datatables/tools/css/dataTables.tableTools.css" rel="stylesheet">
 
     <script src="js/jquery.min.js"></script>
     <script src="js/nprogress.js"></script>
@@ -240,69 +245,89 @@
 
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="dashboard_graph">
-
-                            <div class="row x_title">
-                                <div class="col-md-6">
-                                    <h3>Region East <small>Units Sold</small></h3>
-                                </div>                                
-                            </div>
-
-                            <div class="col-md-9 col-sm-9 col-xs-12">
-                                <div id="placeholder33" style="height: 260px; display: none" class="demo-placeholder"></div>
-                                <div style="width: 100%;">
-                                    <div id="canvas_dahs" class="demo-placeholder" style="width: 100%; height:270px;"></div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-3 col-xs-12 bg-white">
+                            <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Sales Breakdown per Item</h2>
+                                    <h2>Sales Agents <small>North</small></h2>                                    
                                     <div class="clearfix"></div>
                                 </div>
+                                <div class="x_content">
+                                    <table id="example" class="table table-striped responsive-utilities jambo_table">
+                                        <thead>
+                                            <tr class="headings">
+                                                <th>
+                                                    <input type="checkbox" class="tableflat">
+                                                </th>
+                                                <th>Agent ID </th>
+                                                <th>Agent Name </th>
+                                                <th>Area </th>
+                                                <th>Sales Today </th>
+                                                <th>Sales this Week </th>
+                                                <th>Sales this Month </th>
+                                                <th class=" no-link last"><span class="nobr">Sales this Year</span>
+                                                </th>
+                                            </tr>
+                                        </thead>
 
-                                <div class="col-md-12 col-sm-12 col-xs-6">
-                                    <div>
-                                        <p>Shampoo</p>
-                                        <div class="">
-                                            <div class="progress progress_sm" style="width: 76%;">
-                                                <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="80"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <p>Lotion</p>
-                                        <div class="">
-                                            <div class="progress progress_sm" style="width: 76%;">
-                                                <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="60"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 col-sm-12 col-xs-6">
-                                    <div>
-                                        <p>Hair Relaxer</p>
-                                        <div class="">
-                                            <div class="progress progress_sm" style="width: 76%;">
-                                                <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="40"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <p>Hair Food</p>
-                                        <div class="">
-                                            <div class="progress progress_sm" style="width: 76%;">
-                                                <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                        <tbody>
+                                            <tr class="even pointer">
+                                                <td class="a-center ">
+                                                    <input type="checkbox" class="tableflat">
+                                                </td>
+                                                <td class=" ">121000040</td>
+                                                <td class=" "><a href="agent_form.html">Andrew</a></td>
+                                                <td class=" ">Lira</td>
+                                                <td class=" ">100</td>
+                                                <td class=" ">500</td>
+                                                <td class="a-right a-right ">1000</td>
+                                                <td class=" last"><a href="#">2500</a>
+                                                </td>
+                                            </tr>
+                                            <tr class="odd pointer">
+                                                <td class="a-center ">
+                                                    <input type="checkbox" class="tableflat">
+                                                </td>
+                                                <td class=" ">121000039</td>
+                                                <td class=" "><a href="#">Richard</a></td>
+                                                <td class=" ">Gulu</td>
+                                                <td class=" ">100</td>
+                                                <td class=" ">300</td>
+                                                <td class="a-right a-right ">800</td>
+                                                <td class=" last"><a href="#">1000</a>
+                                                </td>
+                                            </tr>
+                                            <tr class="even pointer selected">
+                                                <td class="a-center ">
+                                                    <input type="checkbox" checked class="tableflat">
+                                                </td>
+                                                <td class=" ">121000038</td>
+                                                <td class=" "><a href="#">Mary</a></td>
+                                                <td class=" ">Apac</td>
+                                                <td class=" ">50</td>
+                                                <td class=" ">1200</td>
+                                                <td class="a-right a-right ">5000</td>
+                                                <td class=" last"><a href="#">20000</a>
+                                                </td>
+                                            </tr>
+                                            <tr class="odd pointer">
+                                                <td class="a-center ">
+                                                    <input type="checkbox" class="tableflat">
+                                                </td>
+                                                <td class=" ">121000037</td>
+                                                <td class=" "><a href="#">Grace</a></td>
+                                                <td class=" ">Dokolo</td>
+                                                <td class=" ">120</td>
+                                                <td class=" ">240</td>
+                                                <td class="a-right a-right ">500</td>
+                                                <td class=" last"><a href="#">5000</a>
+                                                </td>
+                                            </tr>
+                                            
+                                        </tbody>
 
+                                    </table>
+                                </div>
                             </div>
-
-                            <div class="clearfix"></div>
                         </div>
-                    </div>
-
                 </div>
                 <br />
                 
@@ -360,66 +385,58 @@
     <script type="text/javascript" src="js/flot/jquery.flot.stack.js"></script>
     <script type="text/javascript" src="js/flot/curvedLines.js"></script>
     <script type="text/javascript" src="js/flot/jquery.flot.resize.js"></script>
-    <script>
-        $(document).ready(function () {
-            // [17, 74, 6, 39, 20, 85, 7]
-            //[82, 23, 66, 9, 99, 6, 2]
-            var data1 = [[gd(2012, 1, 1), 17], [gd(2012, 1, 2), 74], [gd(2012, 1, 3), 6], [gd(2012, 1, 4), 39], [gd(2012, 1, 5), 20], [gd(2012, 1, 6), 85], [gd(2012, 1, 7), 7]];
-
-            var data2 = [[gd(2012, 1, 1), 82], [gd(2012, 1, 2), 23], [gd(2012, 1, 3), 66], [gd(2012, 1, 4), 9], [gd(2012, 1, 5), 119], [gd(2012, 1, 6), 6], [gd(2012, 1, 7), 9]];
-            $("#canvas_dahs").length && $.plot($("#canvas_dahs"), [
-                data1, data2
-            ], {
-                series: {
-                    lines: {
-                        show: false,
-                        fill: true
-                    },
-                    splines: {
-                        show: true,
-                        tension: 0.4,
-                        lineWidth: 1,
-                        fill: 0.4
-                    },
-                    points: {
-                        radius: 0,
-                        show: true
-                    },
-                    shadowSize: 2
-                },
-                grid: {
-                    verticalLines: true,
-                    hoverable: true,
-                    clickable: true,
-                    tickColor: "#d5d5d5",
-                    borderWidth: 1,
-                    color: '#fff'
-                },
-                colors: ["rgba(38, 185, 154, 0.38)", "rgba(3, 88, 106, 0.38)"],
-                xaxis: {
-                    tickColor: "rgba(51, 51, 51, 0.06)",
-                    mode: "time",
-                    tickSize: [1, "day"],
-                    //tickLength: 10,
-                    axisLabel: "Date",
-                    axisLabelUseCanvas: true,
-                    axisLabelFontSizePixels: 12,
-                    axisLabelFontFamily: 'Verdana, Arial',
-                    axisLabelPadding: 10
-                        //mode: "time", timeformat: "%m/%d/%y", minTickSize: [1, "day"]
-                },
-                yaxis: {
-                    ticks: 8,
-                    tickColor: "rgba(51, 51, 51, 0.06)",
-                },
-                tooltip: false
+    
+    <!-- Datatables -->
+        <script src="js/datatables/js/jquery.dataTables.js"></script>
+        <script src="js/datatables/tools/js/dataTables.tableTools.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('input.tableflat').iCheck({
+                    checkboxClass: 'icheckbox_flat-green',
+                    radioClass: 'iradio_flat-green'
+                });
             });
 
-            function gd(year, month, day) {
-                return new Date(year, month - 1, day).getTime();
-            }
-        });
-    </script>    
+            var asInitVals = new Array();
+            $(document).ready(function () {
+                var oTable = $('#example').dataTable({
+                    "oLanguage": {
+                        "sSearch": "Search all columns:"
+                    },
+                    "aoColumnDefs": [
+                        {
+                            'bSortable': false,
+                            'aTargets': [0]
+                        } //disables sorting for column one
+            ],
+                    'iDisplayLength': 12,
+                    "sPaginationType": "full_numbers",
+                    "dom": 'T<"clear">lfrtip',
+                    "tableTools": {
+                        "sSwfPath": "<?php echo base_url('assets2/js/Datatables/tools/swf/copy_csv_xls_pdf.swf'); ?>"
+                    }
+                });
+                $("tfoot input").keyup(function () {
+                    /* Filter on the column based on the index of this element's parent <th> */
+                    oTable.fnFilter(this.value, $("tfoot th").index($(this).parent()));
+                });
+                $("tfoot input").each(function (i) {
+                    asInitVals[i] = this.value;
+                });
+                $("tfoot input").focus(function () {
+                    if (this.className == "search_init") {
+                        this.className = "";
+                        this.value = "";
+                    }
+                });
+                $("tfoot input").blur(function (i) {
+                    if (this.value == "") {
+                        this.className = "search_init";
+                        this.value = asInitVals[$("tfoot input").index(this)];
+                    }
+                });
+            });
+        </script>    
     <!-- /footer content -->
 </body>
 

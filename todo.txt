@@ -1,0 +1,17 @@
+- agents targets vs actual. profile page. agents view
+- on dash board show units sold(physical items) instead of cash value. 
+- time selector. show units sold in the last day/week/month/quater
+- which region is doing best? which product in region is doing best? which product overall is doing best?
+- every product has a stock thresh hold. should not go below certain level
+- opening stock, closing stock, new stock entries
+- new stock entries for a certain region should equal what truck to this region left with
+- tag new stock entries date. show new stock using time filter/ region filter
+- thresh hold plus 20%. thresh hold is in red. 20% close to threshold in yellow
+- time to consume when setting thresh hold and distribution hint
+
+for demo
+- have use case flow possible. from dash view to agent adding info
+- agent & store information profile and contact information, email.
+- force save browser shortcut on phone screen. make it act as app
+
+- Look into adding app to Google Apps MarketPlace
