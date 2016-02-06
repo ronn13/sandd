@@ -27,9 +27,12 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from adm.views import index
+from adm.views import *
 
 urlpatterns = [
     url(r'^$', index, name='index'),
+    url(r'^agents/', agents, name='agents'),
+    url(r'^agent_form/', agent_form, name='agent_form'),
+
     url(r'^admin/', include(admin.site.urls)),
 ]
