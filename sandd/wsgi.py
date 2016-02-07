@@ -12,7 +12,7 @@ import os
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "sandd.settings")
 
 from django.core.wsgi import get_wsgi_application
-=======
+"""=======
 https://docs.djangoproject.com/en/1.8/howto/deployment/wsgi/
 """
 
@@ -22,5 +22,5 @@ from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "sandd.settings")
 
->>>>>>> 8052b7ec016c37e91a9217b06d5337059ac7581f
+#>>>>>>> 8052b7ec016c37e91a9217b06d5337059ac7581f
 application = get_wsgi_application()
