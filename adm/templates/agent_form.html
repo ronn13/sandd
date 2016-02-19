@@ -251,9 +251,16 @@
                                 </div>
 
                                 <div class="x_content">
+                                    {% if errors %}
+                                    <ul>
+                                        {% for error in errors %}
+                                        <li>{{ error }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
                                     <br />
                                     <form class="form-horizontal form-label-left input_mask" action="/agent_form/" method="post">
-
+                                        {% csrf_token %}
                                         <div class="form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Shampoo</label>
                                             <div class="col-md-9 col-sm-9 col-xs-12">
