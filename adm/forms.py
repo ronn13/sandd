@@ -2,15 +2,17 @@ from django import forms
 from models import *
 
 class ProductsForm(forms.ModelForm):
-    STORES = (
-        ('1', 'Father and Sons Depo'),
-        ('2', 'Mother and Daughters Depo'))
+    STOCK_TYPES = (
+        ('opening', 'Opening Stock'),
+        ('closing', 'Closing Stock'),
+        ('new', 'New Stock')
+    )
     
-    store = forms.ChoiceField(choices=STORES)
     shampoo = forms.IntegerField(initial=0)
     hairgel = forms.IntegerField(initial=0)
     relaxer = forms.IntegerField(initial=0)
+    stock_type = forms.ChoiceField(choices=STOCK_TYPES, widget=forms.RadioSelect())
     
     class Meta:
         model = Products 
-        fields = ('store','shampoo','hairgel','relaxer')
+        fields = ('store','shampoo','hairgel','relaxer','stock_type')

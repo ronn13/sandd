@@ -251,52 +251,56 @@
                                 </div>
 
                                 <div class="x_content">
-                                    {% if errors %}
-                                    <ul>
-                                        {% for error in errors %}
-                                        <li>{{ error }}</li>
+                                    {% if messages %}
+                                    <ul class="messages">
+                                        {% for message in messages %}
+                                        <li{% if messages.tags %}class="{{ message.tags }}"{% endif %}>
+                                            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important:{% endif %}
+                                            {{ message }}
+                                        </li>
                                         {% endfor %}
                                     </ul>
                                     {% endif %}
                                     <br />
+                                    
                                     <form class="form-horizontal form-label-left input_mask" action="/agent_form/" method="post">
                                         {% csrf_token %}
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Shampoo</label>
+                                        {{ form.non_field_errors }}
+                                        <div class="fieldWrapper form-group">
+                                            {{ form.store.errors }}
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="{{ form.store.id_for_label }}">Store Name</label>
                                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                                <input type="text" class="form-control" placeholder="Number of Units sold" id="shampoo" name="shampoo">
+                                                {{ form.store }}
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Hair Gel </label>
+                                        <div class="fieldWrapper form-group">
+                                            {{ form.shampoo.errors }}
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="{{ form.shampoo.id_for_label }}">Shampoo</label>
                                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                                <input type="text" class="form-control" placeholder="Number of Units Sold" id="hair_gel" name="hair_gel">
+                                                {{ form.shampoo }}
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Relaxer</label>
+                                        <div class="fieldWrapper form-group">
+                                            {{ form.hairgel.errors }}
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="{{ form.hairgel.id_for_label }}">Hair Gel </label>
                                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                                <input type="text" class="form-control" placeholder="Number of Units Sold" id="relaxer" name="relaxer">
+                                                {{ form.hairgel }}
                                             </div>
                                         </div>
-                                        <div class="radio">
-                                                    <label>
-                                                        <input type="radio" class="flat" checked name="iCheck"> Opening Stock
-                                                    </label>
-                                                </div>
-                                                <div class="radio">
-                                                    <label>
-                                                        <input type="radio" class="flat" name="iCheck"> Closing Stock
-                                                    </label>
-                                                </div>
-                                                <div class="radio">
-                                                    <label>
-                                                        <input type="radio" class="flat" name="iCheck"> New Stock
-                                                    </label>
-                                                </div>
+                                        <div class="fieldWrapper form-group">
+                                            {{ form.relaxer.errors }}
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="{{ form.relaxer.id_for_label }}">Relaxer</label>
+                                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                                {{ form.relaxer }}
+                                            </div>
                                         </div>
-
+                                        <div class="radio fieldWrapper">
+                                            {{ form.stock_type.errors }}
+                                            <label for="{{ form.stock_type.id_for_label }}">
+                                                {{ form.stock_type }}
+                                            </label>
                                         </div>
+                                        
                                         <div class="ln_solid"></div>
                                         <div class="form-group">
                                             <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">

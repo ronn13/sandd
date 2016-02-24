@@ -15,7 +15,9 @@ class Agent(models.Model):
 		return self.agent_names
 
 class Products(models.Model):
-	shampoo = models.IntegerField()
-	hairgel = models.IntegerField()
-	relaxer = models.IntegerField()
-	store = models.ForeignKey('Store')
+    stock_type = models.CharField(max_length=20, default="opening")
+    shampoo = models.IntegerField()
+    hairgel = models.IntegerField()
+    relaxer = models.IntegerField()
+    store = models.ForeignKey('Store')
+    
