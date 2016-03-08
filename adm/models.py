@@ -21,3 +21,5 @@ class Products(models.Model):
     relaxer = models.IntegerField()
     store = models.ForeignKey('Store')
     
+    def __str__(self):
+        return self.store

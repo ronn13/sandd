@@ -32,6 +32,8 @@ from adm.views import *
 urlpatterns = [
     url(r'^$', index, name='index'),
     url(r'^agents/', agents, name='agents'),
+    #url(r'^agents/(?P<region>[a-z])/$', region_agents, name='region_agents'),
+    #url(r'^agents/(?P<region>[a-z]/?P<agent>[0-9])/$', agents, name='agents'),
     url(r'^agent_form/', agent_form, name='agent_form'),
 
     url(r'^admin/', include(admin.site.urls)),
