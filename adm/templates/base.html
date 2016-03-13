@@ -187,154 +187,15 @@
             </div>
             <!-- /top navigation -->
 
-            {% block content %}
+            
             <!-- page content -->
             <div class="right_col" role="main">
                 {{region_agents}}
-                <!-- top tiles -->
-                <div class="row tile_count">
-                    <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
-                        <div class="left"></div>
-                        <div class="right">
-                            <span class="count_top">Units Sold North</span>
-                            <div class="count">2,500</div>
-                            <span class="count_bottom"><i class="green">4% </i> From last Week</span>
-                        </div>
-                    </div>
-                    <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
-                        <div class="left"></div>
-                        <div class="right">
-                            <span class="count_top">Units Sold South</span>
-                            <div class="count">1,230</div>
-                            <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> From last Week</span>
-                        </div>
-                    </div>
-                    <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
-                        <div class="left"></div>
-                        <div class="right">
-                            <span class="count_top">Units Sold East</span>
-                            <div class="count">2,500</div>
-                            <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
-                        </div>
-                    </div>
-                    <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
-                        <div class="left"></div>
-                        <div class="right">
-                            <span class="count_top">Units Sold West</span>
-                            <div class="count">4,567</div>
-                            <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> From last Week</span>
-                        </div>
-                    </div>
-                    <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
-                        <div class="left"></div>
-                        <div class="right">
-                            <span class="count_top"></i> Units Sold Central</span>
-                            <div class="count">2,315</div>
-                            <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
-                        </div>
-                    </div>
-                    <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
-                        <div class="left"></div>
-                        <div class="right">
-                            <span class="count_top"></i> Total Units Sold</span>
-                            <div class="count green">70,325</div>
-                            <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
-                        </div>
-                    </div>
-
-                </div>
-                <!-- /top tiles -->
-
-                <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                            <div class="x_panel">
-                                <div class="x_title">
-                                    <h2>Sales Agents <small>North</small></h2>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="x_content">
-                                    <table id="example" class="table table-striped responsive-utilities jambo_table">
-                                        <thead>
-                                            <tr class="headings">
-                                                <th>
-                                                    <input type="checkbox" class="tableflat">
-                                                </th>
-                                                <th>Agent ID </th>
-                                                <th>Agent Name </th>
-                                                <th>Area </th>
-                                                <th>Sales Today </th>
-                                                <th>Sales this Week </th>
-                                                <th>Sales this Month </th>
-                                                <th class=" no-link last"><span class="nobr">Sales this Year</span>
-                                                </th>
-                                            </tr>
-                                        </thead>
-
-                                        <tbody>
-                                            <tr class="even pointer">
-                                                <td class="a-center ">
-                                                    <input type="checkbox" class="tableflat">
-                                                </td>
-                                                <td class=" ">121000040</td>
-                                                <td class=" "><a href="/agent_form">Andrew</a></td>
-                                                <td class=" ">Lira</td>
-                                                <td class=" ">100</td>
-                                                <td class=" ">500</td>
-                                                <td class="a-right a-right ">1000</td>
-                                                <td class=" last"><a href="#">2500</a>
-                                                </td>
-                                            </tr>
-                                            <tr class="odd pointer">
-                                                <td class="a-center ">
-                                                    <input type="checkbox" class="tableflat">
-                                                </td>
-                                                <td class=" ">121000039</td>
-                                                <td class=" "><a href="#">Richard</a></td>
-                                                <td class=" ">Gulu</td>
-                                                <td class=" ">100</td>
-                                                <td class=" ">300</td>
-                                                <td class="a-right a-right ">800</td>
-                                                <td class=" last"><a href="#">1000</a>
-                                                </td>
-                                            </tr>
-                                            <tr class="even pointer selected">
-                                                <td class="a-center ">
-                                                    <input type="checkbox" checked class="tableflat">
-                                                </td>
-                                                <td class=" ">121000038</td>
-                                                <td class=" "><a href="#">Mary</a></td>
-                                                <td class=" ">Apac</td>
-                                                <td class=" ">50</td>
-                                                <td class=" ">1200</td>
-                                                <td class="a-right a-right ">5000</td>
-                                                <td class=" last"><a href="#">20000</a>
-                                                </td>
-                                            </tr>
-                                            <tr class="odd pointer">
-                                                <td class="a-center ">
-                                                    <input type="checkbox" class="tableflat">
-                                                </td>
-                                                <td class=" ">121000037</td>
-                                                <td class=" "><a href="#">Grace</a></td>
-                                                <td class=" ">Dokolo</td>
-                                                <td class=" ">120</td>
-                                                <td class=" ">240</td>
-                                                <td class="a-right a-right ">500</td>
-                                                <td class=" last"><a href="#">5000</a>
-                                                </td>
-                                            </tr>
-
-                                        </tbody>
-
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                </div>
-                <br />
-
+                
+                {% block content %}
+                {% endblock %}
+                
                 <!-- footer content -->
-
                 <footer>
                     <div class="">
                         <p class="pull-right">2015 |
