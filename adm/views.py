@@ -7,8 +7,17 @@ from models import *
 def index(request):
     return render(request, 'index.html')
 
-def agents(request):
-    return render(request, 'agents.html')
+def agents(request, region=None, agent=None):
+    if region is None:
+        return render(request, 'agents.html')
+    else:
+        if agent is None:
+            #get agents for this region
+            region_agents = Agent.objects.filter(region=region)
+            return render(request, 'agents.html', {'region_agents':region_agents})
+        else:
+            region_agents = "nothing worth it"
+            return render(request, 'agents.html', {'region_agents':region_agents})
 
 def agent_form(request):
     store = Store.objects.all()
