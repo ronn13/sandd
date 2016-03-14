@@ -13,7 +13,7 @@ def agents(request, region=None, agent=None):
     else:
         if agent is None:
             #get agents for this region
-            region_agents = Agent.objects.filter(region=region)
+            region_agents = Agent.objects.get(region=region)
             return render(request, 'agents.html', {'region_agents':region_agents})
         else:
             region_agents = "nothing worth it"
