@@ -21,13 +21,19 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
+class StockManager(models.Manager):
+    def store_stock(self, keyword):
+        return self.filter(store_name=keyword).aggregate(Sum(count()))
+
 class Stock(models.Model):
-    CHOICES = ((1, 'Opening Stock'),
-        (2, 'Closing stock'),
-        (3, 'New stock'),)
+    CHOICES = (('1', 'Opening Stock'),
+        ('2', 'Closing stock'),
+        ('3', 'New stock'),)
     product = models.ForeignKey('Product')
-    count = models.IntegerField()
+    stock_count = models.IntegerField()
     store_name = models.ForeignKey('Store')
     stock_type = models.CharField(max_length=20, choices=CHOICES)
     stock_time = models.DateTimeField(auto_now_add=True)
+    objects = StockManager()
+    
     

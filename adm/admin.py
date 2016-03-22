@@ -4,4 +4,5 @@ from models import *
 
 admin.site.register(Store)
 admin.site.register(Agent)
-admin.site.register(Products)
+admin.site.register(Product)
+admin.site.register(Stock)
