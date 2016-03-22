@@ -1,18 +1,22 @@
 from django.db import models
 
-class Store(models.Model):
-    store_name = models.CharField(max_length=250)
-    agent = models.ForeignKey('Agent')
-       
-    def __str__(self):
-		return self.store_name
-
 class Agent(models.Model):
 	agent_names = models.CharField(max_length=50)
 	region=models.CharField(max_length=50)
 
 	def __str__(self):
 		return self.agent_names
+
+class StoreManager(models.Manager):
+    def agent_stores(self, keyword):
+        return self.filter(agent=keyword)
+
+class Store(models.Model):
+    store_name = models.CharField(max_length=250)
+    agent = models.ForeignKey('Agent')
+       
+    def __str__(self):
+		return self.store_name
 
 class Product(models.Model):
     name = models.CharField(max_length=20, default="product name")
