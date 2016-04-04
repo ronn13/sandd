@@ -7,12 +7,21 @@ from models import *
 def index(request):
     return render(request, 'index.html')
 
+def store_totals(request, region=None):
+    stores = []
+    if region is None:
+        return render(request, 'store_totals.html')
+    else:
+        locations = Location.objects.filter(region=region)
+        for location in locations:
+            stores.append(location_stores(location))
+        return render(request, 'store_totals.html', {'stores':stores})        
+
 def agents(request, region=None, agent=None):
     if region is None:
         return render(request, 'agents.html')
     else:
         if agent is None:
-            #get agents for this region
             region_agents = Agent.objects.get(region=region)
             return render(request, 'agents.html', {'region_agents':region_agents})
         else:

@@ -1,18 +1,31 @@
 from django.db import models
 
+class Region(models.Model):
+    name = models.CharField(max_length=50)
+    
+    def __str__(self):
+        return self.name
+
+class Location(models.Model):
+    name = models.CharField(max_length=50)
+    region = models.ForeignKey('Region')
+    
+    def __str__(self):
+        return self.name
+
 class Agent(models.Model):
 	agent_names = models.CharField(max_length=50)
-	region=models.CharField(max_length=50)
-
+	
 	def __str__(self):
 		return self.agent_names
 
 class StoreManager(models.Manager):
-    def agent_stores(self, keyword):
-        return self.filter(agent=keyword)
+    def location_stores(self, keyword):
+        return self.filter(location=keyword)
 
 class Store(models.Model):
     store_name = models.CharField(max_length=250)
+    location = models.ForeignKey('Location')
     agent = models.ForeignKey('Agent')
        
     def __str__(self):
@@ -38,6 +51,7 @@ class Stock(models.Model):
     store_name = models.ForeignKey('Store')
     stock_type = models.CharField(max_length=20, choices=CHOICES)
     stock_time = models.DateTimeField(auto_now_add=True)
-    objects = StockManager()
-    
-    
+    objects = StockManager()   
+        
+    # def __str__(self):
+    #     return self.prodct
