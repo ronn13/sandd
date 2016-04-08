@@ -4,18 +4,20 @@ from django.contrib import messages
 from forms import *
 from models import *
 
-def index(request):
-    return render(request, 'index.html')
-
 def store_totals(request, region=None):
     stores = []
     if region is None:
-        return render(request, 'store_totals.html')
-    else:
-        locations = Location.objects.filter(region=region)
-        for location in locations:
-            stores.append(location_stores(location))
-        return render(request, 'store_totals.html', {'stores':stores})        
+        region='Central'
+    
+    locations = Location.objects.filter(region__name=region)
+    for location in locations:
+        for shops in Store.objects.filter(location__name=location):
+            stores.append(shops)
+    context = {
+        'stores':stores,
+        'region':region
+    }
+    return render(request, 'store_totals.html', context)        
 
 def agents(request, region=None, agent=None):
     if region is None:
