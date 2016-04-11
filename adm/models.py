@@ -1,3 +1,4 @@
+import datetime
 from django.db import models
 
 class Region(models.Model):
@@ -19,10 +20,6 @@ class Agent(models.Model):
 	def __str__(self):
 		return self.agent_names
 
-class StoreManager(models.Manager):
-    def location_stores(self, keyword):
-        return self.filter(location=keyword)
-
 class Store(models.Model):
     store_name = models.CharField(max_length=250)
     location = models.ForeignKey('Location')
@@ -39,7 +36,14 @@ class Product(models.Model):
         return self.name
 
 class StockManager(models.Manager):
-    def store_stock(self, keyword):
+    def day_stock(self, keyword):
+        q1 = self.filter(store__name=keyword)
+        #q2 = q1.filter(self.stock_time.date() = datetime.datetime.now().date()).aggregate(Sum(count()))
+        
+    def week_stock(self, keyword):
+        return self.filter(store_name=keyword).aggregate(Sum(count()))
+        
+    def year_stock(self, keyword):
         return self.filter(store_name=keyword).aggregate(Sum(count()))
 
 class Stock(models.Model):
@@ -48,7 +52,7 @@ class Stock(models.Model):
         ('3', 'New stock'),)
     product = models.ForeignKey('Product')
     stock_count = models.IntegerField()
-    store_name = models.ForeignKey('Store')
+    store = models.ForeignKey('Store')
     stock_type = models.CharField(max_length=20, choices=CHOICES)
     stock_time = models.DateTimeField(auto_now_add=True)
     objects = StockManager()   

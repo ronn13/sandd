@@ -7,12 +7,12 @@ from models import *
 def store_totals(request, region=None):
     stores = []
     if region is None:
-        region='Central'
-    
+        region='Central'    
     locations = Location.objects.filter(region__name=region)
     for location in locations:
         for shops in Store.objects.filter(location__name=location):
             stores.append(shops)
+    this_
     context = {
         'stores':stores,
         'region':region
