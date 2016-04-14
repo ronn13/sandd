@@ -74,7 +74,6 @@
                                 <th>Store Location </th>
                                 <th>Agent </th>
                                 <th>Sales Today </th>
-                                <th>Sales this Week </th>
                                 <th>Sales this Month </th>
                                 <th class=" no-link last"><span class="nobr">Sales this Year</span>
                                 </th>
@@ -90,10 +89,9 @@
                                     <td class=" ">{{ store.store_name }}</td>
                                     <td class=" ">{{ store.location }}</td>
                                     <td class=" ">{{ store.agent }}</td>
-                                    <td class=" ">100</td>
-                                    <td class=" ">500</td>
-                                    <td class="a-right a-right ">1000</td>
-                                    <td class=" last"><a href="#">2500</a>
+                                    <td class=" ">{% day_stock[store.store_name] %}</td>
+                                    <td class="a-right a-right ">{{ month_stock[store.store_name] }}</td>
+                                    <td class=" last"><a href="#">{{ year_stock[store.store_name] }}</a>
                                     </td>
                                 </tr>
                             {% endfor %}
