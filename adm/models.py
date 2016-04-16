@@ -34,7 +34,7 @@ class Store(models.Model):
     agent = models.ForeignKey('Agent')
        
     def __unicode__(self):
-        return unicode(self.name)
+        return unicode(self.store_name)
 
 class Product(models.Model):
     name = models.CharField(max_length=20, default="product name")

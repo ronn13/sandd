@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+{% load my_tags %}
 
 {% block content %}
  
@@ -87,11 +88,11 @@
                                         <input type="checkbox" class="tableflat">
                                     </td>
                                     <td class=" ">{{ store.store_name }}</td>
-                                    <td class=" ">{{ store.location }}</td>
+                                    <td class=" ">{{ store.store_location }}</td>
                                     <td class=" ">{{ store.agent }}</td>
-                                    <td class=" ">{% day_stock[store.store_name] %}</td>
-                                    <td class="a-right a-right ">{{ month_stock[store.store_name] }}</td>
-                                    <td class=" last"><a href="#">{{ year_stock[store.store_name] }}</a>
+                                    <td class=" ">{% day_total store.store_name %}</td>
+                                    <td class="a-right a-right ">{% month_total store.store_name %}</td>
+                                    <td class=" last"><a href="#">{% year_total store.store_name %}</a>
                                     </td>
                                 </tr>
                             {% endfor %}
