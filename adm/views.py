@@ -5,6 +5,9 @@ from django.contrib import messages
 from forms import *
 from models import *
 
+def index(request):
+    return store_totals(request, region=None)
+
 def store_totals(request, region=None):
     stores = []
 
@@ -20,18 +23,37 @@ def store_totals(request, region=None):
         'stores':stores,
         'region':region, 
     }
-    return render(request, 'store_totals.html', context)        
+    return render(request, 'store_totals.html', context)
 
-def agents(request, region=None, agent=None):
-    if region is None:
-        return render(request, 'agents.html')
-    else:
-        if agent is None:
-            region_agents = Agent.objects.get(region=region)
-            return render(request, 'agents.html', {'region_agents':region_agents})
-        else:
-            region_agents = "nothing worth it"
-            return render(request, 'agents.html', {'region_agents':region_agents})
+def store_profile(request, region=None, store_id=None):
+    stock = Stock.objects.filter(store__id=store_id)            
+    store_obj = Store.objects.filter(id=store_id)
+
+    context = {
+        'stock':stock,
+        'store_obj':store_obj
+    }
+    return render(request, 'store_profile.html', context)
+
+def location_stores(request, region=None, location_name=None):
+    stores = Sto.objects.filter(store__id=store_id)            
+    store_obj = Store.objects.filter(id=store_id)
+
+    context = {
+        'stock':stock,
+        'store_obj':store_obj
+    }
+    return render(request, 'store_profile.html', context)        
+
+def agent_profile(request, agent=None):
+    agent_obj = Agent.objects.filter(username=agent)
+    agent_stores = Store.objects.filter(agent__username=agent)
+
+    context = {
+        'agent_obj':agent_obj,
+        'agent_stores':agent_stores
+    }
+    return render(request, 'agent_profile.html', context)
 
 def agent_form(request):
     store = Store.objects.all()

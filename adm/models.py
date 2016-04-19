@@ -22,11 +22,12 @@ class Location(models.Model):
         return unicode(self.name)
 
 class Agent(models.Model):
-	agent_names = models.CharField(max_length=50)
-	
-	def __str__(self):
-		return self.agent_names
-    
+    username = models.CharField(max_length=50, unique=True)
+    fist_name = models.CharField(max_length=50, default="First Name")
+    last_name = models.CharField(max_length=50, default="Last Name")
+
+    def __str__(self):
+        return self.username    
 
 class Store(models.Model):
     store_name = models.CharField(max_length=250)

@@ -14,3 +14,7 @@ def month_total(keyword):
 @register.simple_tag
 def day_total(keyword):
 	return Stock.objects.year_count(keyword).values()[0]
+
+@register.simple_tag
+def get_stock_type_display(keyword):
+	return keyword.get_stock_type_display()
