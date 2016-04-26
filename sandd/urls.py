@@ -33,10 +33,9 @@ urlpatterns = [
     url(r'^$', index, name='index'),
     url(r'^(?P<region>[A-Z][a-z]+)/$', store_totals, name='store_totals'),
     url(r'^(?P<region>[A-Z][a-z]+)/(?P<store_id>[0-9]+)/$', store_profile, name='store_profile'),
-    #currently this url catches admin urls as well. fix it!!!    
-    url(r'^(?P<agent>[a-z]+)/$', agent_profile, name='agent_profile'),
     
     url(r'^agent_form/', agent_form, name='agent_form'),
 
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^(?P<agent>[a-z]+)/$', agent_profile, name='agent_profile'),
 ]
