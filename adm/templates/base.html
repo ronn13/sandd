@@ -2,6 +2,7 @@
 <html lang="en">
 
 {% load staticfiles %}
+{% load my_tags %}
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -97,10 +98,20 @@
                                 <li><a href="/South">South <span class="fa fa-chevron-down"></span></a></li>
                                 <li><a href="/East">East <span class="fa fa-chevron-down"></span></a></li>
                                 <li><a href="/West">West <span class="fa fa-chevron-down"></span></a></li>
+                            </ul>
                         </div>
                     </div>
                     <!-- /sidebar menu -->
-
+                    
+                    <div class="menu_section">
+                        <h3>Products</h3>
+                        <ul class="nav side-menu">
+                            {% for pdt in get_products %}
+                                {{pdt}}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    
                     <!-- /menu footer buttons -->
                     <div class="sidebar-footer hidden-small">
                         <a data-toggle="tooltip" data-placement="top" title="Settings">

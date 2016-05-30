@@ -18,3 +18,7 @@ def day_total(keyword):
 @register.simple_tag
 def get_stock_type_display(keyword):
 	return keyword.get_stock_type_display()
+	
+@register.simple_tag
+def get_products():
+	return Product.objects.all()

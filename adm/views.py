@@ -17,8 +17,7 @@ def store_totals(request, region=None):
     for ltn in locations:
         for shop in Store.objects.filter(store_location__name=ltn):
             stores.append(shop)
-            
-                    
+    
     context = {
         'stores':stores,
         'region':region, 
@@ -72,3 +71,15 @@ def agent_form(request):
         form = ProductsForm()
         
     return render(request, 'agent_form.html', locals())
+
+def products(request, prod_id=None):
+    if not product_id is None:
+        products = Products.objects.all()
+    else:
+        products = Products.objects.filter(product_id=prod_id)
+        
+    context = {
+        'products':products
+    }
+    
+    return render(request, 'products.html', context)
