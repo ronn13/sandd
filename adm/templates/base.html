@@ -106,8 +106,9 @@
                     <div class="menu_section">
                         <h3>Products</h3>
                         <ul class="nav side-menu">
-                            {% for pdt in get_products %}
-                                {{pdt}}
+                            {% get_products as prod %}
+                            {% for pdt in prod %}
+                                <li><a href="{{ pdt.id }}">{{pdt.name}}</a></li>
                             {% endfor %}
                         </ul>
                     </div>
