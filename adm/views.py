@@ -72,12 +72,12 @@ def agent_form(request):
         
     return render(request, 'agent_form.html', locals())
 
-def products(request, prod_id=None):
-    if not product_id is None:
-        products = Products.objects.all()
+def pdt_page(request, pdt_id=None):
+    if not pdt_id == 0:
+        products = Product.objects.all()        
     else:
-        products = Products.objects.filter(product_id=prod_id)
-        
+        products = Product.objects.filter(product_id=pdt_id)        
+    
     context = {
         'products':products
     }

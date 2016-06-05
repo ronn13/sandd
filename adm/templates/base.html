@@ -104,11 +104,11 @@
                     <!-- /sidebar menu -->
                     
                     <div class="menu_section">
-                        <h3>Products</h3>
+                        <h3><a href="/products/0">Products</a></h3>
                         <ul class="nav side-menu">
                             {% get_products as prod %}
                             {% for pdt in prod %}
-                                <li><a href="{{ pdt.id }}">{{pdt.name}}</a></li>
+                                <li><a href="/products/{{ pdt.id }}">{{pdt.name}}</a></li>
                             {% endfor %}
                         </ul>
                     </div>

@@ -31,6 +31,8 @@ from adm.views import *
 
 urlpatterns = [
     url(r'^$', index, name='index'),
+    #change regex below to accept 1 or more of number as product id
+    url(r'^products/(?P<pdt_id>[0-9]+)/$', pdt_page, name='pdt_page'),
     url(r'^(?P<region>[A-Z][a-z]+)/$', store_totals, name='store_totals'),
     url(r'^(?P<region>[A-Z][a-z]+)/(?P<store_id>[0-9]+)/$', store_profile, name='store_profile'),
 	
