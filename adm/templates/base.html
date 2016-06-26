@@ -86,32 +86,27 @@
                             <h3>General</h3>
                             <ul class="nav side-menu">
                                 <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
-                                <li><a href="/Central">Central <span class="fa fa-chevron-down"></span></a></li>
-                                <li><a href="/North">North <span class="fa fa-chevron-down"></span></a>
-                                    <!--<ul class="nav child_menu" style="display: none">
-                                        <li><a href="#">Stores</a>
-                                        </li>
-                                        <li><a href="/agents">Agents</a>
-                                        </li>
-                                    </ul>-->
+                                <li><a><i class="fa fa-globe"></i> Regions <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu" style="display: none">
+                                        <li><a href="/Central">Central</a></li>
+                                        <li><a href="/North">North</a></li>
+                                        <li><a href="/South">South</a></li>
+                                        <li><a href="/East">East</a></li>
+                                        <li><a href="/West">West</a></li>                                        
+                                    </ul>
                                 </li>
-                                <li><a href="/South">South <span class="fa fa-chevron-down"></span></a></li>
-                                <li><a href="/East">East <span class="fa fa-chevron-down"></span></a></li>
-                                <li><a href="/West">West <span class="fa fa-chevron-down"></span></a></li>
+                                <li><a href="/products/0"><i class="fa fa-cubes"></i> Products <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav side-menu" style="display: none">
+                                        {% get_products as prod %}
+                                        {% for pdt in prod %}
+                                            <li><a href="/products/{{ pdt.id }}">{{pdt.name}}</a></li>
+                                        {% endfor %}                                        
+                                    </ul>
+                                </li>
                             </ul>
                         </div>
                     </div>
                     <!-- /sidebar menu -->
-                    
-                    <div class="menu_section">
-                        <h3><a href="/products/0">Products</a></h3>
-                        <ul class="nav side-menu">
-                            {% get_products as prod %}
-                            {% for pdt in prod %}
-                                <li><a href="/products/{{ pdt.id }}">{{pdt.name}}</a></li>
-                            {% endfor %}
-                        </ul>
-                    </div>
                     
                     <!-- /menu footer buttons -->
                     <div class="sidebar-footer hidden-small">
