@@ -87,9 +87,9 @@
                                     <td class="a-center ">
                                         <input type="checkbox" class="tableflat">
                                     </td>
-                                    <td class=" "><a href="/{{region}}/{{store.id}}/">{{ store.store_name }}</a></td>
+                                    <td class=" "><a href="/{{region|lower}}/{{store.id}}/">{{ store.store_name }}</a></td>
                                     <td class=" ">{{ store.store_location }}</td>
-                                    <td class=" "><a href="/{{store.agent}}/">{{ store.agent }}</a></td>
+                                    <td class=" "><a href="/{{store.agent|lower}}/">{{ store.agent }}</a></td>
                                     <td class=" ">{% day_total store.store_name %}</td>
                                     <td class="a-right a-right ">{% month_total store.store_name %}</td>
                                     <td class=" last"><a href="#">{% year_total store.store_name %}</a>

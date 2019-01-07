@@ -84,7 +84,7 @@
                                     <td class="a-center ">
                                         <input type="checkbox" class="tableflat">
                                     </td>
-                                    <td class=" ">{{ s.store_name }}</td>
+                                    <td class=" "><a href="/{{region|lower}}/{{s.store_id}}/">{{ s.store_name }}</a></td>
                                     <td class=" ">{{ s.store_location }}</td>
                                 </tr>
                             {% endfor %}

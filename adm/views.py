@@ -2,25 +2,17 @@
 import datetime
 from django.shortcuts import render
 from django.contrib import messages
-from forms import *
-from models import *
+from .forms import *
+from .models import *
 
 def index(request):
-    return store_totals(request, region=None)
+    return store_totals(request)
 
-def store_totals(request, region=None):
-    stores = []
-
-    if region is None:
-        region='Central'    
-    locations = Location.objects.filter(region__name=region)
-    for ltn in locations:
-        for shop in Store.objects.filter(store_location__name=ltn):
-            stores.append(shop)
+def store_totals(request):
+    stores = Store.objects.all()
     
     context = {
-        'stores':stores,
-        'region':region, 
+        'stores':stores, 
     }
     return render(request, 'store_totals.html', context)
 
@@ -45,8 +37,8 @@ def location_stores(request, region=None, location_name=None):
     return render(request, 'store_profile.html', context)        
 
 def agent_profile(request, agent=None):
-    agent_obj = Agent.objects.filter(username=agent)
-    agent_stores = Store.objects.filter(agent__username=agent)
+    agent_obj = Agent.objects.filter(username__iexact=agent)
+    agent_stores = Store.objects.filter(agent__username__iexact=agent)
 
     context = {
         'agent_obj':agent_obj,
@@ -57,29 +49,69 @@ def agent_profile(request, agent=None):
 def agent_form(request):
     store = Store.objects.all()
     if request.POST:
-        form = ProductsForm(request.POST)
-        if form.is_valid():
-            store = form.cleaned_data['store']
-            shampoo = form.cleaned_data['shampoo']
-            hairgel = form.cleaned_data['hairgel']
-            relaxer = form.cleaned_data['relaxer']
-            stock_type = form.cleaned_data['stock_type']
+        form = StockForm(request.POST)
+        if form.is_valid():            
             form.save()
-            messages.add_message(request, messages.SUCCESS, "Stock updated for %s" % store)
-            form = ProductsForm()                
+            # messages.add_message(request, messages.SUCCESS, "Stock updated for %s" % store)
+            form = StockForm()                
     else:
-        form = ProductsForm()
+        form = StockForm()
         
     return render(request, 'agent_form.html', locals())
 
 def pdt_page(request, pdt_id=None):
-    if not pdt_id == 0:
+    if pdt_id == '0':
         products = Product.objects.all()        
     else:
-        products = Product.objects.filter(product_id=pdt_id)        
-    
+        products = Product.objects.filter(id=int(pdt_id))        
+    print(pdt_id)
+    print(type(pdt_id))
     context = {
         'products':products
     }
     
     return render(request, 'products.html', context)
+
+def store_admin(request):
+    if request.POST:
+        form = StoreForm(request.POST)
+        if form.is_valid():            
+            form.save()
+            form = StoreForm()                
+    else:
+        form = StoreForm()
+        
+    return render(request, 'store_admin.html', locals())
+
+def location_admin(request):
+    if request.POST:
+        form = LocationForm(request.POST)
+        if form.is_valid():            
+            form.save()
+            form = LocationForm()                
+    else:
+        form = LocationForm()
+        
+    return render(request, 'location_admin.html', locals())
+
+def agent_admin(request):
+    if request.POST:
+        form = AgentForm(request.POST)
+        if form.is_valid():            
+            form.save()
+            form = AgentForm()                
+    else:
+        form = AgentForm()
+        
+    return render(request, 'agent_admin.html', locals())
+
+def region_admin(request):
+    if request.POST:
+        form = RegionForm(request.POST)
+        if form.is_valid():            
+            form.save()
+            form = RegionForm()                
+    else:
+        form = RegionForm()
+        
+    return render(request, 'region_admin.html', locals())

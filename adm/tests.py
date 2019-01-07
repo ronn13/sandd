@@ -1,4 +1,4 @@
-from django.test import
+from django.test import *
 from django.shortcuts import render 
 
 def index():

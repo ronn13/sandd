@@ -95,7 +95,9 @@
                                         <li><a href="/West">West</a></li>                                        
                                     </ul>
                                 </li>
-                                <li><a href="/products/0"><i class="fa fa-cubes"></i> Products <span class="fa fa-chevron-down"></span></a>
+                                <li><a href="{% url 'agent_form' %}"><i class="fa fa-cloud-upload"></i> Data Form <span class="fa fa-chevron-down"></span></a>                                    
+                                </li>
+                                <li><a href="/products/0/"><i class="fa fa-cubes"></i> Products <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav side-menu" style="display: none">
                                         {% get_products as prod %}
                                         {% for pdt in prod %}
