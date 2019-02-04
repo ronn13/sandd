@@ -88,11 +88,10 @@
                                 <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
                                 <li><a><i class="fa fa-globe"></i> Regions <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a href="/Central">Central</a></li>
-                                        <li><a href="/North">North</a></li>
-                                        <li><a href="/South">South</a></li>
-                                        <li><a href="/East">East</a></li>
-                                        <li><a href="/West">West</a></li>                                        
+                                        {% get_all_regions as locations %}
+                                        {% for location in locations %}
+                                            <li><a href="/{{ location.region }}">{{ location.region }}</a></li>
+                                        {% endfor%}                                                                                
                                     </ul>
                                 </li>
                                 <li><a href="{% url 'agent_form' %}"><i class="fa fa-cloud-upload"></i> Data Form <span class="fa fa-chevron-down"></span></a>                                    
@@ -178,7 +177,7 @@
                 <!-- footer content -->
                 <footer>
                     <div class="">
-                        <p class="pull-right">2015 |
+                        <p class="pull-right">2019 |
                             <span class="lead">Sandd</span>
                         </p>
                     </div>

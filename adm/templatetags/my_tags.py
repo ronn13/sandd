@@ -31,7 +31,19 @@ def pdt_day_total(keyword):
 def get_stock_type_display(keyword):
 	return keyword.get_stock_type_display()
 	
+# get all products for use in the base.html nav menu
 @register.simple_tag
 def get_products(keyword=None):
     return Product.objects.all()
+
+# get all regions for use in the base.html nav menu
+@register.simple_tag
+def get_all_regions(keyword=None):
+    return Location.objects.all()
+
+#a tag to retrieve the region from the store location
+@register.simple_tag
+def get_store_region(keyword=None):
+	loc_object = Location.objects.get(name=keyword)
+	return loc_object.region
 	

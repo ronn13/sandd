@@ -1,18 +1,23 @@
-#for deployment to openshift
 import datetime
+from urllib.parse import unquote
+
 from django.shortcuts import render
 from django.contrib import messages
+
 from .forms import *
 from .models import *
 
 def index(request):
     return store_totals(request)
 
-def store_totals(request):
-    stores = Store.objects.all()
+def store_totals(request, location=None):
+    if location is None:
+        stores = Store.objects.all()
+    else:
+        stores = Store.objects.filter(store_location__name=location)
     
     context = {
-        'stores':stores, 
+            'stores':stores, 
     }
     return render(request, 'store_totals.html', context)
 
@@ -27,7 +32,7 @@ def store_profile(request, region=None, store_id=None):
     return render(request, 'store_profile.html', context)
 
 def location_stores(request, region=None, location_name=None):
-    stores = Sto.objects.filter(store__id=store_id)            
+    stock = Stock.objects.filter(store__id=store_id)            
     store_obj = Store.objects.filter(id=store_id)
 
     context = {
