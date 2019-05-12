@@ -59,47 +59,74 @@
 
 <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="x_panel">
-                <div class="x_title">
-                    <h2>Stores <small>{{region}}</small></h2>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                    <table id="example" class="table table-striped responsive-utilities jambo_table">
-                        <thead>
-                            <tr class="headings">
-                                <th>
-                                    <input type="checkbox" class="tableflat">
-                                </th>
-                                <th>Store Name </th>
-                                <th>Store Location </th>
-                                <th>Agent </th>
-                                <th>Sales Today </th>
-                                <th>Sales this Month </th>
-                                <th class=" no-link last"><span class="nobr">Sales this Year</span>
-                                </th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            {% for store in stores %}
-                                <tr class="even pointer">
-                                    <td class="a-center ">
-                                        <input type="checkbox" class="tableflat">
-                                    </td>
-                                    <td class=" "><a href="/{% get_store_region store.store_location %}/{{store.id}}/">{{ store.store_name }}</a></td>
-                                    <td class=" "><a href="/{{ store.store_location }}/">{{ store.store_location }}</a></td>
-                                    <td class=" "><a href="/{{store.agent|lower}}/">{{ store.agent }}</a></td>
-                                    <td class=" ">{% day_total store.store_name %}</td>
-                                    <td class="a-right a-right ">{% month_total store.store_name %}</td>
-                                    <td class=" last">{% year_total store.store_name %}</td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-
-                    </table>
+        <div class="x_title">
+        </div>
+        <div class="x_content">
+            <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Data</a>
+                    </li>
+                    <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab"  aria-expanded="false">WTD</a>
+                    </li>
+                    <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">MTD</a>
+                    </li>
+                    <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">YTD</a>
+                    </li>
+                </ul>
+                <div id="myTabContent" class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+                        <div class="x_panel">
+                                    <div class="x_title">
+                                        <h2>Stores <small>{{region}}</small></h2>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="x_content">
+                                        <table id="example" class="table table-striped responsive-utilities jambo_table">
+                                            <thead>
+                                                <tr class="headings">
+                                                    <th>
+                                                        <input type="checkbox" class="tableflat">
+                                                    </th>
+                                                    <th>Store Name </th>
+                                                    <th>Store Location </th>
+                                                    <th>Agent </th>
+                                                    <th>Sales Today </th>
+                                                    <th>Sales this Month </th>
+                                                    <th class=" no-link last"><span class="nobr">Sales this Year</span>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                    
+                                            <tbody>
+                                                {% for store in stores %}
+                                                    <tr class="even pointer">
+                                                        <td class="a-center ">
+                                                            <input type="checkbox" class="tableflat">
+                                                        </td>
+                                                        <td class=" "><a href="/{% get_store_region store.store_location %}/{{store.id}}/">{{ store.store_name }}</a></td>
+                                                        <td class=" "><a href="/{{ store.store_location }}/">{{ store.store_location }}</a></td>
+                                                        <td class=" "><a href="/{{store.agent|lower}}/">{{ store.agent }}</a></td>
+                                                        <td class=" ">{% day_total store.store_name %}</td>
+                                                        <td class="a-right a-right ">{% month_total store.store_name %}</td>
+                                                        <td class=" last">{% year_total store.store_name %}</td>
+                                                    </tr>
+                                                {% endfor %}
+                                            </tbody>
+                    
+                                        </table>
+                                    </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+                        <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip</p>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+                        <p>xxFood truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk </p>
+                    </div>
                 </div>
             </div>
+        </div>
+            
         </div>
 </div>
 <br />
