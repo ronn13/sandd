@@ -28,6 +28,18 @@ def pdt_day_total(keyword):
 	return list(Stock.objects.pdt_day_count(keyword).values())[0]
 
 @register.simple_tag
+def total_year_total(keyword):
+	return list(Stock.objects.total_year_count(keyword).values())[0]
+
+@register.simple_tag
+def total_month_total(keyword):
+	return list(Stock.objects.total_month_count(keyword).values())[0]
+
+@register.simple_tag
+def total_day_total(keyword):
+	return list(Stock.objects.total_day_count(keyword).values())[0]
+
+@register.simple_tag
 def get_stock_type_display(keyword):
 	return keyword.get_stock_type_display()
 	

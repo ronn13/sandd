@@ -15,7 +15,7 @@ def store_totals(request, location=None):
     if location is None:
         stores = Store.objects.all()
     else:
-        stores = Store.objects.filter(store_location__name=location)
+        stores = Store.objects.filter(store_location__region__name=location)
     
     context = {
             'stores':stores, 
