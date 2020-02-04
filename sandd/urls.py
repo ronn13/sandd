@@ -1,9 +1,14 @@
 from django.conf.urls import include, url
+from django.urls import path
 from django.contrib import admin
+from rest_framework import routers
 
 from adm.views import *
 
-
+router = routers.DefaultRouter()
+router.register(r'stock_api', StockViewSet)
+router.register(r'product_detail', ProductViewSet)
+router.register(r'store_detail', StoreViewSet)
 
 admin.autodiscover()
 
@@ -26,4 +31,7 @@ urlpatterns = [
     url(r'^region_admin/', region_admin, name='region_admin'),
 
     url(r'^admin/', admin.site.urls),
+
+    path('', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]

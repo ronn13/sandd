@@ -1,11 +1,12 @@
 import datetime
 from urllib.parse import unquote
-
+from rest_framework import viewsets
 from django.shortcuts import render
 from django.contrib import messages
 
 from .forms import *
 from .models import *
+from .serializers import *
 
 def index(request):
     return store_totals(request)
@@ -120,3 +121,15 @@ def region_admin(request):
         form = RegionForm()
         
     return render(request, 'region_admin.html', locals())
+
+class StockViewSet(viewsets.ModelViewSet):
+    queryset = Stock.objects.all().order_by('-stock_time')
+    serializer_class = StockSerializer
+
+class ProductViewSet(viewsets.ModelViewSet):
+    queryset = Product.objects.all().order_by('name')
+    serializer_class = ProductSerializer
+
+class StoreViewSet(viewsets.ModelViewSet):
+    queryset = Store.objects.all().order_by('store_name')
+    serializer_class = StoreSerializer

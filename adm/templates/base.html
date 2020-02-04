@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-{% load staticfiles %}
+{% load static %}
 {% load my_tags %}
 
 <head>
@@ -177,7 +177,7 @@
                 <!-- footer content -->
                 <footer>
                     <div class="">
-                        <p class="pull-right">2019 |
+                        <p class="pull-right">{% now "Y" %} |
                             <span class="lead">Sandd</span>
                         </p>
                     </div>

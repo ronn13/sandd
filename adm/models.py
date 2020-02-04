@@ -7,9 +7,6 @@ class Region(models.Model):
     
     def __str__(self):
         return self.name
-        
-    def __unicode__(self):
-        return '%s' % (self.name)
 
 class Location(models.Model):
     name = models.CharField(max_length=50)
@@ -17,9 +14,6 @@ class Location(models.Model):
     
     def __str__(self):
         return self.name
-        
-    def __unicode__(self):
-        return unicode(self.name)
 
 class Agent(models.Model):
     username = models.CharField(max_length=50, unique=True)
@@ -34,8 +28,8 @@ class Store(models.Model):
     store_location = models.ForeignKey('Location', on_delete= models.CASCADE)
     agent = models.ForeignKey('Agent', on_delete= models.CASCADE)
        
-    def __unicode__(self):
-        return unicode(self.store_name)
+    def __str__(self):
+        return self.store_name
 
 class Product(models.Model):
     name = models.CharField(max_length=20, default="product name")
@@ -43,9 +37,6 @@ class Product(models.Model):
     
     def __str__(self):
         return self.name
-        
-    def __unicode__(self):
-        return '%s' % (self.name)
 
 class StockManager(models.Manager):
     def year_count(self, keyword):
@@ -67,14 +58,24 @@ class StockManager(models.Manager):
         return Stock.objects.filter(product__name=keyword).filter(stock_time__day=datetime.datetime.today().date().day).aggregate(Sum('stock_count'))
 
 class Stock(models.Model):
-    CHOICES = (('1', 'Opening Stock'),
-        ('2', 'Closing stock'),
-        ('3', 'New stock'),)
-    product = models.ForeignKey('Product', on_delete= models.CASCADE)
+    CHOICES = (('opening', 'Opening Stock'),
+        ('closing', 'Closing stock'),
+        ('new', 'New stock'),)
+
+    product = models.ForeignKey('Product', related_name='products', on_delete= models.CASCADE)
     stock_count = models.IntegerField()
-    store = models.ForeignKey('Store', on_delete= models.CASCADE)
+    store = models.ForeignKey('Store', related_name='stores', on_delete= models.CASCADE)
     stock_type = models.CharField(max_length=20, choices=CHOICES)
     stock_time = models.DateTimeField(auto_now_add=True)
+    
     objects = StockManager()
     
+    #one store can only have one stock type ie opening stock per week.
+    #time period for this would need to be discussed with client
+    class Meta:
+        unique_together = ['store', 'stock_type', 'stock_time']
+
+
+    def __str__(self):
+        return self.store + self.stock_type + self.stock_time
     
