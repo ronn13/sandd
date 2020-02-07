@@ -60,14 +60,18 @@ class StockManager(models.Manager):
         return Stock.objects.filter(product__name=keyword).filter(stock_time__day=datetime.datetime.today().date().day).aggregate(Sum('stock_count'))
 
     # totals per year/month/day for all stores for all products 
-    def total_year_count(self, keyword):
-        return Stock.objects.all().filter(stock_time__year=datetime.datetime.today().date().year).aggregate(Sum('stock_count'))
+    def total_year_count():
+        return Stock.objects.filter(stock_time__year=datetime.datetime.today().date().year).aggregate(Sum('stock_count'))
     #for month and day, datetime returns single digits without the leading zero. add if to add it if count is less than 2
-    def total_month_count(self, keyword):
-        return Stock.objects.all().filter(stock_time__month=datetime.datetime.today().date().month).aggregate(Sum('stock_count'))
+    def total_month_count():
+        return Stock.objects.filter(stock_time__month=datetime.datetime.today().date().month).aggregate(Sum('stock_count'))
         
-    def total_day_count(self, keyword):
-        return Stock.objects.all().filter(stock_time__day=datetime.datetime.today().date().day).aggregate(Sum('stock_count'))
+    def total_day_count():
+        return Stock.objects.filter(stock_time__day=datetime.datetime.today().date().day).aggregate(Sum('stock_count'))
+        
+    # monthly totals per region. time can be altered to show totals for other time period per region
+    def region_month_count(self, keyword):
+        return Stock.objects.filter(store__store_location__region__name=keyword).filter(stock_time__month=datetime.datetime.today().date().month).aggregate(Sum('stock_count'))
 
 class Stock(models.Model):
     CHOICES = (('opening', 'Opening Stock'),
